@@ -25,6 +25,7 @@ public class CaseManager : MonoBehaviour
     public TMP_InputField DCaseDescriptionTMP;
     public TMP_Dropdown DCasePriorityDropdown;
     public int previewedCaseId = -1;
+    public int siblingIndex = -1;
 
     string caseFirstName = "";
     string caseLastName = "";
@@ -64,7 +65,8 @@ public class CaseManager : MonoBehaviour
         if (previewedCaseId < 0) return;
         Case resolvedSupportCase = OpenCasesList.ElementAt(previewedCaseId);
         ResolvedCasesList.Add(resolvedSupportCase);
-        OpenCasesList.RemoveAt(previewedCaseId);
+        //OpenCasesList.RemoveAt(previewedCaseId); This line breaks my app
+        
     }
     public void RemoveCaseFromViewportContent()
     {
@@ -72,7 +74,7 @@ public class CaseManager : MonoBehaviour
         Transform viewPortContentTransform = OpenCasesListContent?.transform;
         if (viewPortContentTransform?.childCount > 0)
         {
-            Destroy(viewPortContentTransform.GetChild(previewedCaseId).gameObject);
+            Destroy(viewPortContentTransform.GetChild(siblingIndex).gameObject);
         }
     }
     public void AddCaseToViewportContent()

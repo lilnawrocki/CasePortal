@@ -19,6 +19,7 @@ public class CaseDetails : MonoBehaviour
             EnableDetailsPanel();
             FillDetailsPanel();
             if (CaseManager.CM) CaseManager.CM.previewedCaseId = caseId;
+            if (CaseManager.CM) CaseManager.CM.siblingIndex = transform.GetSiblingIndex();
         });
         
     }
