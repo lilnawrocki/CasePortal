@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
@@ -11,9 +10,10 @@ public class CaseDetails : MonoBehaviour
     [SerializeField]
     TMP_Text PriorityTMP, IdTMP, TitleTMP;
     int caseId;
+    bool resolved = false;
     void Awake()
     {
-        CD = GetComponent<CaseDetails>();
+        CD = this;
         GetComponent<Button>()?.onClick.AddListener(delegate
         {
             EnableDetailsPanel();
@@ -44,7 +44,10 @@ public class CaseDetails : MonoBehaviour
 
     public void FillDetailsPanel()
     {
-        CaseManager.CM?.FillCaseDetails(caseId);
+        if (resolved)
+            CaseManager.CM?.FillCaseDetails(caseId, CaseManager.CM.ResolvedCasesList);
+        else
+            CaseManager.CM?.FillCaseDetails(caseId, CaseManager.CM.OpenCasesList);
     }
     public void SetCaseId(int caseId)
     {
@@ -54,7 +57,10 @@ public class CaseDetails : MonoBehaviour
     {
         return caseId;
     }
-
+    public void SetResolved(bool resolved)
+    {
+        this.resolved = resolved;
+    }
 }
 
 

@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Case
 {
     string firstName = "";
@@ -10,6 +8,7 @@ public class Case
     string createdTime = "";
     int caseId = 0;
     int casePriority = 0;//0 - Urgent; 1 - High; 2 - Standard
+    bool resolved = false;
 
     public Case(string firstName, string lastName, string email, string title, string description, string createdTime, int caseId, int casePriority)
     {
@@ -67,5 +66,13 @@ public class Case
 
         return output;
     }
+    public void SetResolved(bool resolved)
+    {
+        this.resolved = resolved;
+    }
 
+    public bool GetResolved()
+    {
+        return resolved;
+    }
 }
