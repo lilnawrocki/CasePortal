@@ -5,15 +5,12 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class CaseDetails : MonoBehaviour
 {
-    public static CaseDetails CD;
-
     [SerializeField]
     TMP_Text PriorityTMP, IdTMP, TitleTMP, DateTMP;
     int caseId;
     bool resolved = false;
     void Awake()
     {
-        CD = this;
         GetComponent<Button>()?.onClick.AddListener(delegate
         {
             EnableDetailsPanel();

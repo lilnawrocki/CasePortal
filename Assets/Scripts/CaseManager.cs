@@ -17,7 +17,7 @@ public class CaseManager : MonoBehaviour
     public GameObject CaseDetailsPanel;
     public GameObject CaseDetailsPanelPrefab;
     public GameObject OpenCasesListContent;
-    public GameObject ClosedCasesListContent;
+
     [Header("Case Details")]
     public TMP_Text DCaseDateTMP;
     public TMP_InputField DCaseFirstNameTMP;
