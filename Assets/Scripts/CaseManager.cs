@@ -140,7 +140,7 @@ public class CaseManager : MonoBehaviour
         };
         string firstName = "Marcin";
         string lastName = "Nawrocki";
-        string email = "marcin.nawrocki@smartbear.com";
+        string email = "marcin.nawrocki@example.com";
 
         int randomIndex = UnityEngine.Random.Range(0, 4);
         int randomPriority = UnityEngine.Random.Range(0, 3);
