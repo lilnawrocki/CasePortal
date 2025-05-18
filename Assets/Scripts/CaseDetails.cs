@@ -8,7 +8,7 @@ public class CaseDetails : MonoBehaviour
     public static CaseDetails CD;
 
     [SerializeField]
-    TMP_Text PriorityTMP, IdTMP, TitleTMP;
+    TMP_Text PriorityTMP, IdTMP, TitleTMP, DateTMP;
     int caseId;
     bool resolved = false;
     void Awake()
@@ -35,6 +35,11 @@ public class CaseDetails : MonoBehaviour
     public void SetTitleTMP(string text)
     {
         if (TitleTMP) TitleTMP.text = text;
+    }
+
+    public void SetDateTMP(string text)
+    {
+        if (DateTMP) DateTMP.text = text;
     }
 
     public void EnableDetailsPanel()

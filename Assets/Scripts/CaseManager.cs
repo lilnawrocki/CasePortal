@@ -19,6 +19,7 @@ public class CaseManager : MonoBehaviour
     public GameObject OpenCasesListContent;
     public GameObject ClosedCasesListContent;
     [Header("Case Details")]
+    public TMP_Text DCaseDateTMP;
     public TMP_InputField DCaseFirstNameTMP;
     public TMP_InputField DCaseLastNameTMP;
     public TMP_InputField DCaseEmailTMP;
@@ -94,6 +95,7 @@ public class CaseManager : MonoBehaviour
         caseDetails.SetTitleTMP(supportCase.GetTitle());
         caseDetails.SetIdTMP(supportCase.GetCaseId().ToString("#0000"));
         caseDetails.SetPriorityTMP(supportCase.GetCasePriority());
+        caseDetails.SetDateTMP(supportCase.GetCreatedTime());
         caseDetails.SetCaseId(supportCase.GetCaseId());
         caseDetails.SetResolved(supportCase.GetResolved());
 
@@ -108,6 +110,7 @@ public class CaseManager : MonoBehaviour
     public void FillCaseDetails(int caseId, List<Case> casesList)
     {
         Case supportCase = casesList.ElementAt(caseId);
+        if (DCaseDateTMP) DCaseDateTMP.text = $"Created on: {supportCase.GetCreatedTime()}";
         if (DCaseFirstNameTMP) DCaseFirstNameTMP.text = supportCase.GetFirstName();
         if (DCaseLastNameTMP) DCaseLastNameTMP.text = supportCase.GetLastName();
         if (DCaseEmailTMP) DCaseEmailTMP.text = supportCase.GetEmail();
